@@ -24,26 +24,17 @@ class MimeTypesDelegate implements Hiraeth\Delegate
 
 
 	/**
-	 *
-	 */
-	public function __construct(Hiraeth\Application $app)
-	{
-		$this->app = $app;
-	}
-
-
-	/**
 	 * Get the instance of the class for which the delegate operates.
 	 *
 	 * @access public
-	 * @param Hiraeth\Broker $broker The dependency injector instance
+	 * @param Hiraeth\Application $app The application instance for which the delegate operates
 	 * @return object The instance of the class for which the delegate operates
 	 */
-	public function __invoke(Hiraeth\Broker $broker): object
+	public function __invoke(Hiraeth\Application $app): object
 	{
 		$builder = Mimey\MimeMappingBuilder::create();
 
-		foreach ($this->app->getConfig('*', 'mime.types', []) as $types) {
+		foreach ($app->getConfig('*', 'mime.types', []) as $types) {
 			foreach ($types as $extension => $mime_type) {
 				$builder->add($mime_type, $extension);
 			}
