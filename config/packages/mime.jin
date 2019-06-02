@@ -7,7 +7,7 @@
 	;
 
 	aliases = {
-		"Mimey\MimeTypes": "Hiraeth\Mime\MimeTypesInterface"
+		"Hiraeth\Mime\MimeTypesInterface": "Mimey\MimeTypes"
 	}
 
 	;
