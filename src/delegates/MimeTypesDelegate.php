@@ -2,33 +2,25 @@
 
 namespace Hiraeth\Mime;
 
-use Mimey;
 use Hiraeth;
+use Mimey;
 
 /**
- *
+ * {@inheritDoc}
  */
 class MimeTypesDelegate implements Hiraeth\Delegate
 {
 	/**
-	 * Get the class for which the delegate operates.
-	 *
-	 * @static
-	 * @access public
-	 * @return string The class for which the delegate operates
+	 * {@inheritDoc}
 	 */
 	static public function getClass(): string
 	{
-		return Mimey\MimeTypes::class;
+		return MimeTypes::class;
 	}
 
 
 	/**
-	 * Get the instance of the class for which the delegate operates.
-	 *
-	 * @access public
-	 * @param Hiraeth\Application $app The application instance for which the delegate operates
-	 * @return object The instance of the class for which the delegate operates
+	 * {@inheritDoc}
 	 */
 	public function __invoke(Hiraeth\Application $app): object
 	{
@@ -40,6 +32,6 @@ class MimeTypesDelegate implements Hiraeth\Delegate
 			}
 		}
 
-		return new Mimey\MimeTypes($builder->getMapping());
+		return new MimeTypes($builder->getMapping());
 	}
 }
